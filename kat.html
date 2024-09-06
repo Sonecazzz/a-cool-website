@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kat </title>
+    <style>
+        @font-face {
+            font-family: 'PressStart2P';
+            src: url('https://fonts.gstatic.com/s/pressstart2p/v9/e3t4euW0T-2303LGZqqiIJ9KZNtXAw.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'PressStart2P', Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;  /* Prevent scrolling */
+        }
+
+        .container {
+            text-align: center;
+            background-color: #000000;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            position: relative;
+            max-width: 100vw;  /* Ensure container fits within viewport */
+            max-height: 100vh; /* Ensure container fits within viewport */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        .title {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-family: 'PressStart2P';
+        }
+
+        .button, .yes-button, .no-button {
+            background-color: #6c757d;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 24px;
+            font-size: 12px;
+            font-family: 'PressStart2P';
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .button:hover, .yes-button:hover {
+            background-color: #5a6268;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .image {
+            width: 90%;  /* Increase image width while ensuring responsiveness */
+            max-width: 80vw;  /* Ensure image fits within viewport width */
+            max-height: 60vh; /* Ensure image fits within viewport height */
+            height: auto;
+            margin: 0 auto;  /* Center image horizontally */
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;  /* Allow images to wrap if they overflow */
+            justify-content: center;
+            align-items: center;
+        }
+
+        #first-image, #third-image {
+            max-width: 90vw;  /* Make first and third images larger */
+            max-height: 70vh;
+        }
+
+        #second-image, #fourth-image, #eight-image {
+            max-width: 90vw;  /* Ensure second, fourth, and eighth images are similar in size */
+            max-height: 70vh;
+        }
+
+        .no-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.1s;
+            z-index: 10;
+        }
+
+        @keyframes moveButton {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 50px); }
+            50% { transform: translate(-50px, -50px); }
+            75% { transform: translate(50px, -50px); }
+            100% { transform: translate(-50px, 50px); }
+        }
+
+        .moving {
+            animation: moveButton 0.5s infinite;
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="text" class="title">...</div>
+        <div id="image-container" class="image-container">
+            <img id="first-image" class="hidden image" src="Rad.jpg" alt="Rad">
+            <img id="second-image" class="hidden image" src="Eagle (1).jpg" alt="Eagle1">
+            <img id="third-image" class="hidden image" src="Eagle (2).jpg" alt="Eagle2">
+            <img id="fourth-image" class="hidden image" src="Eagle (3).jpg" alt="Eagle3">
+            <img id="fifth-image" class="hidden image" src="Ice Cold Mamba.png" alt="Ice Cold Mamba">
+            <img id="sixth-image" class="hidden image" src="Cool.png" alt="Cool">
+            <img id="seventh-image" class="hidden image" src="goku-drip.jpg" alt="goku-drip">
+            <img id="eight-image" class="hidden image" src="eagle 4.jpg" alt="Eagle4">
+        </div>
+        <button id="action-button" class="button" onclick="changeText()">Click Me</button>
+    </div>
+
+    <audio id="background-music" src="All Of The Lights.mp3" loop></audio>
+
+    <script>
+        let clickCount = 0;
+        const music = document.getElementById('background-music');
+
+        function changeText() {
+            clickCount++;
+            const textElement = document.getElementById('text');
+            const firstImageElement = document.getElementById('first-image');
+            const secondImageElement = document.getElementById('second-image');
+            const thirdImageElement = document.getElementById('third-image');
+            const fourthImageElement = document.getElementById('fourth-image');
+            const fifthImageElement = document.getElementById('fifth-image');
+            const sixthImageElement = document.getElementById('sixth-image');
+            const seventhImageElement = document.getElementById('seventh-image');
+            const eightImageElement = document.getElementById('eight-image');
+            const buttonElement = document.getElementById('action-button');
+            const container = document.querySelector('.container');
+
+            // Reset image visibility at the start of the function
+            firstImageElement.classList.add('hidden');
+            secondImageElement.classList.add('hidden');
+            thirdImageElement.classList.add('hidden');
+            fourthImageElement.classList.add('hidden');
+            fifthImageElement.classList.add('hidden');
+            sixthImageElement.classList.add('hidden');
+            seventhImageElement.classList.add('hidden');
+            eightImageElement.classList.add('hidden');
+
+            if (clickCount === 1) {
+                if (music.paused) {
+                    music.play().catch(error => {
+                        console.log("Autoplay failed. The user must interact with the page.");
+                    });
+                }
+                textElement.textContent = "Hey goober";
+                firstImageElement.classList.remove('hidden');
+            } else if (clickCount === 2) {
+                textElement.textContent = "What's cooler than being cool?";
+                seventhImageElement.classList.remove('hidden');
+            } else if (clickCount === 3) {
+                seventhImageElement.classList.add('hidden');
+                textElement.textContent = "ICE COLD!";
+                fifthImageElement.classList.remove('hidden');
+            } else if (clickCount === 4) {
+                fifthImageElement.classList.add('hidden');
+                textElement.textContent = "HELL YEAHH!!!";
+                secondImageElement.classList.remove('hidden');
+            } else if (clickCount === 5) {
+                secondImageElement.classList.add('hidden');
+                thirdImageElement.classList.remove('hidden');
+            } else if (clickCount === 6) {
+                thirdImageElement.classList.add('hidden');
+                fourthImageElement.classList.remove('hidden');
+            } else if (clickCount === 7) {
+                fourthImageElement.classList.add('hidden');
+                eightImageElement.classList.remove('hidden');
+            } else if (clickCount === 8) {
+                eightImageElement.classList.add('hidden');
+                textElement.textContent = "Anyways.";
+            } else if (clickCount === 9) {
+                textElement.textContent = "You're cool";
+                sixthImageElement.classList.remove('hidden');
+            } else if (clickCount === 10) {
+                sixthImageElement.classList.add('hidden');
+                textElement.textContent = "And you got a nice ass ( ͡° ͜ʖ ͡° ) (‿ˠ‿)!!!";
+            } else if (clickCount === 11) {
+                textElement.textContent = "I'm glad we're in a relationship.";
+            } else if (clickCount === 12) {
+                textElement.textContent = "You're pretty, cute and nice to me.";
+            } else if (clickCount === 13) {
+                textElement.textContent = "I'm committed.";
+            } else if (clickCount === 14) {
+                textElement.textContent = "You can count on me for anything.";
+            } else if (clickCount === 15) {
+                textElement.textContent = "Will you webcam with me?";
+                buttonElement.textContent = "Yes";
+                buttonElement.setAttribute('onclick', 'accept)');
+
+                // Add "No" button
+                const noButton = document.createElement('button');
+                noButton.textContent = 'No';
+                noButton.className = 'no-button moving';
+                container.appendChild(noButton);
+
+                // Make the "No" button move away from the cursor
+                noButton.addEventListener('mousemove', () => {
+                    const maxX = container.clientWidth - noButton.clientWidth;
+                    const maxY = container.clientHeight - noButton.clientHeight;
+                    const rect = container.getBoundingClientRect();
+
+                    let x = Math.random() * maxX;
+                    let y = Math.random() * maxY;
+
+                    x = Math.min(Math.max(x, 0), maxX);
+                    y = Math.min(Math.max(y, 0), maxY);
+
+                    noButton.style.left = `${x}px`;
+                    noButton.style.top = `${y}px`;
+                });
+            } else {
+                clickCount = 0;
+                textElement.textContent = "Button";
+                buttonElement.textContent = "Click Me";
+                buttonElement.setAttribute('onclick', 'changeText()');
+
+                // Remove "No" button
+                const noButton = document.querySelector('.no-button');
+                if (noButton) {
+                    container.removeChild(noButton);
+                }
+            }
+        }
+
+        function accept() {
+            alert("See ya sucker");
+            const buttonElement = document.getElementById('action-button');
+            buttonElement.textContent = "Hell yeh";
+            buttonElement.removeAttribute('onclick');
+
+            // Remove "No" button if it exists
+            const noButton = document.querySelector('.no-button');
+            if (noButton) {
+                noButton.remove();
+            }
+
+            // Stop the music
+            music.pause();
+            music.currentTime = 0;
+        }
+    </script>
+</body>
+</html>
