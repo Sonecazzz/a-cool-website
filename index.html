@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Kat </title>
+    <title>Interactive Apology Webpage</title>
     <style>
         @font-face {
             font-family: 'PressStart2P';
@@ -206,7 +206,7 @@
             } else if (clickCount === 15) {
                 textElement.textContent = "Will you webcam with me?";
                 buttonElement.textContent = "Yes";
-                buttonElement.setAttribute('onclick', 'accept)');
+                buttonElement.setAttribute('onclick', 'acceptApology()');
 
                 // Add "No" button
                 const noButton = document.createElement('button');
@@ -243,7 +243,7 @@
             }
         }
 
-        function accept() {
+        function acceptApology() {
             alert("See ya sucker");
             const buttonElement = document.getElementById('action-button');
             buttonElement.textContent = "Hell yeh";
