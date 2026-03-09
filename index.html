@@ -116,19 +116,21 @@
     <div class="container">
         <div id="text" class="title">...</div>
         <div id="image-container" class="image-container">
-            <img id="first-image" class="hidden image" src="Rad.jpg" alt="Rad">
-            <img id="second-image" class="hidden image" src="Eagle (1).jpg" alt="Eagle1">
-            <img id="third-image" class="hidden image" src="Eagle (2).jpg" alt="Eagle2">
-            <img id="fourth-image" class="hidden image" src="Eagle (3).jpg" alt="Eagle3">
-            <img id="fifth-image" class="hidden image" src="Ice Cold Mamba.png" alt="Ice Cold Mamba">
+            <img id="first-image" class="hidden image" src="ola.jpg" alt="ola">
+            <img id="second-image" class="hidden image" src="eu 1.gif" alt="eu 1">
+            <img id="third-image" class="hidden image" src="eu 2.webp" alt="Eagle2">
+            <img id="fourth-image" class="hidden image" src="eu 3.png" alt="Eagle3">
+            <img id="fifth-image" class="hidden image" src="fixe.gif" alt="fixe">
             <img id="sixth-image" class="hidden image" src="Cool.png" alt="Cool">
             <img id="seventh-image" class="hidden image" src="goku-drip.jpg" alt="goku-drip">
-            <img id="eight-image" class="hidden image" src="eagle 4.jpg" alt="Eagle4">
+            <img id="eight-image" class="hidden image" src="11.jpg" alt="ya">
+            <img id="ninth-image" class="hidden image" src="ya 2.webp" alt="ya">
+
         </div>
-        <button id="action-button" class="button" onclick="changeText()">Click Me</button>
+        <button id="action-button" class="button" onclick="changeText()">Clica</button>
     </div>
 
-    <audio id="background-music" src="All Of The Lights.mp3" loop></audio>
+    <audio id="background-music" src="Nightcore - My Heart Beats Like A Drum .mp3" loop></audio>
 
     <script>
         let clickCount = 0;
@@ -145,6 +147,7 @@
             const sixthImageElement = document.getElementById('sixth-image');
             const seventhImageElement = document.getElementById('seventh-image');
             const eightImageElement = document.getElementById('eight-image');
+            const ninthImageElement = document.getElementById('ninth-image');
             const buttonElement = document.getElementById('action-button');
             const container = document.querySelector('.container');
 
@@ -164,18 +167,18 @@
                         console.log("Autoplay failed. The user must interact with the page.");
                     });
                 }
-                textElement.textContent = "Hey goober";
+                textElement.textContent = "ola";
                 firstImageElement.classList.remove('hidden');
             } else if (clickCount === 2) {
-                textElement.textContent = "What's cooler than being cool?";
+                textElement.textContent = "tudo bem?";
                 seventhImageElement.classList.remove('hidden');
             } else if (clickCount === 3) {
                 seventhImageElement.classList.add('hidden');
-                textElement.textContent = "ICE COLD!";
+                textElement.textContent = "sabes quem é buéda fixe?";
                 fifthImageElement.classList.remove('hidden');
             } else if (clickCount === 4) {
                 fifthImageElement.classList.add('hidden');
-                textElement.textContent = "HELL YEAHH!!!";
+                textElement.textContent = "eu lol";
                 secondImageElement.classList.remove('hidden');
             } else if (clickCount === 5) {
                 secondImageElement.classList.add('hidden');
@@ -188,29 +191,17 @@
                 eightImageElement.classList.remove('hidden');
             } else if (clickCount === 8) {
                 eightImageElement.classList.add('hidden');
-                textElement.textContent = "Anyways.";
+                textElement.textContent = "mas sabes o que era ainda mais fixe?";
             } else if (clickCount === 9) {
-                textElement.textContent = "You're cool";
-                sixthImageElement.classList.remove('hidden');
-            } else if (clickCount === 10) {
-                sixthImageElement.classList.add('hidden');
-                textElement.textContent = "And you got a nice ass ( ͡° ͜ʖ ͡° ) (‿ˠ‿)!!!";
-            } else if (clickCount === 11) {
-                textElement.textContent = "I'm glad we're in a relationship.";
-            } else if (clickCount === 12) {
-                textElement.textContent = "You're pretty, cute and nice to me.";
-            } else if (clickCount === 13) {
-                textElement.textContent = "I'm committed.";
-            } else if (clickCount === 14) {
-                textElement.textContent = "You can count on me for anything.";
-            } else if (clickCount === 15) {
-                textElement.textContent = "Will you webcam with me?";
-                buttonElement.textContent = "Yes";
+                ninthImageElement.classList.add('hidden');
+                ninthImageElement.classList.remove('hidden');
+                textElement.textContent = "se estivesses comigo agora ( ͡° ͜ʖ ͡°)";
+                buttonElement.textContent = "sim nelson quero-te tanto oh meu deus és tão lindo gostoso e perfeito";
                 buttonElement.setAttribute('onclick', 'acceptApology()');
 
                 // Add "No" button
                 const noButton = document.createElement('button');
-                noButton.textContent = 'No';
+                noButton.textContent = 'ew não';
                 noButton.className = 'no-button moving';
                 container.appendChild(noButton);
 
@@ -244,9 +235,9 @@
         }
 
         function acceptApology() {
-            alert("See ya sucker");
+            alert(":3");
             const buttonElement = document.getElementById('action-button');
-            buttonElement.textContent = "Hell yeh";
+            buttonElement.textContent = ":333;
             buttonElement.removeAttribute('onclick');
 
             // Remove "No" button if it exists
